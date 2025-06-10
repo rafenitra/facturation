@@ -22,8 +22,5 @@ public class JwtUtils {
                 .compact();
     }
 
-    public String extractMail(String jsp){
-
-    }
 
 }
