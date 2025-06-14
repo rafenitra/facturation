@@ -1,5 +1,6 @@
 package com.facturation.backend.security;
 import com.facturation.backend.dto.LoginRequest;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -22,5 +23,12 @@ public class JwtUtils {
                 .compact();
     }
 
-
+    public String extractMail(String token){
+        return Jwts.parser()
+                .verifyWith(jwtSecret)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getSubject();
+    }
 }
