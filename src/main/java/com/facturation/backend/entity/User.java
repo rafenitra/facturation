@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -32,4 +33,5 @@ public class User{
     @Column(name = "inscription_date")
     @Builder.Default
     private LocalDate inscriptionDate = LocalDate.now();
+    
 }
